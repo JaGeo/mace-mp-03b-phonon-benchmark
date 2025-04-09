@@ -1,0 +1,45 @@
+data_crystal_structure_P1
+
+_symmetry_space_group_name_H-M     'P 1'
+_symmetry_Int_Tables_number        1
+
+_cell_length_a                     4.67896
+_cell_length_b                     4.29735
+_cell_length_c                     9.09675
+_cell_angle_alpha                  90.00000
+_cell_angle_beta                   104.02282
+_cell_angle_gamma                  90.00000
+_cell_volume                       177.45877
+_cell_formula_units_Z              1
+
+loop_
+_space_group_symop_operation_xyz
+x,y,z
+
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_occupancy
+Ca1    Ca    0.40152   0.75000   0.28653   1.00000
+Ca2    Ca    0.59848   0.25000   0.71347   1.00000
+Sb1    Sb    0.78717   0.75000   0.01589   1.00000
+Sb2    Sb    0.21283   0.25000   0.98411   1.00000
+Sb3    Sb    0.05442   0.75000   0.61755   1.00000
+Sb4    Sb    0.94558   0.25000   0.38245   1.00000
+loop_
+_atom_site_aniso_label
+_atom_site_aniso_U_11
+_atom_site_aniso_U_22
+_atom_site_aniso_U_33
+_atom_site_aniso_U_23
+_atom_site_aniso_U_13
+_atom_site_aniso_U_12
+   Ca1    0.06389    0.03358    0.05467   -0.00000    0.01405   -0.00000
+   Ca2    0.06389    0.03358    0.05467   -0.00000    0.01405   -0.00000
+   Sb1    0.02732    0.02269    0.03984    0.00000    0.01230    0.00000
+   Sb2    0.02732    0.02269    0.03984    0.00000    0.01230   -0.00000
+   Sb3    0.04046    0.08719    0.29122    0.00000    0.06428   -0.00000
+   Sb4    0.04046    0.08719    0.29122    0.00000    0.06428   -0.00000

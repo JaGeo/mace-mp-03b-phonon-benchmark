@@ -1,0 +1,49 @@
+data_crystal_structure_P1
+
+_symmetry_space_group_name_H-M     'P 1'
+_symmetry_Int_Tables_number        1
+
+_cell_length_a                     3.97938
+_cell_length_b                     3.97938
+_cell_length_c                     8.96854
+_cell_angle_alpha                  90.00000
+_cell_angle_beta                   90.00000
+_cell_angle_gamma                  90.00000
+_cell_volume                       142.02099
+_cell_formula_units_Z              1
+
+loop_
+_space_group_symop_operation_xyz
+x,y,z
+
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_occupancy
+Cu1    Cu    1.00000   0.00000   0.50000   1.00000
+Cu2    Cu    0.50000   0.50000   0.50000   1.00000
+Bi1    Bi    1.00000   0.50000   0.86056   1.00000
+Bi2    Bi    0.50000   0.00000   0.13944   1.00000
+Se1    Se    0.50000   1.00000   0.67237   1.00000
+Se2    Se    1.00000   0.50000   0.32763   1.00000
+O1      O    0.50000   0.50000   0.00000   1.00000
+O2      O    1.00000   1.00000   0.00000   1.00000
+loop_
+_atom_site_aniso_label
+_atom_site_aniso_U_11
+_atom_site_aniso_U_22
+_atom_site_aniso_U_33
+_atom_site_aniso_U_23
+_atom_site_aniso_U_13
+_atom_site_aniso_U_12
+   Cu1    0.02478    0.02478    0.02606    0.00000   -0.00000    0.00000
+   Cu2    0.02478    0.02478    0.02606   -0.00000   -0.00000   -0.00000
+   Bi1    0.00949    0.00949    0.01353    0.00000   -0.00000    0.00000
+   Bi2    0.00949    0.00949    0.01353   -0.00000   -0.00000    0.00000
+   Se1    0.01370    0.01370    0.01759    0.00000    0.00000    0.00000
+   Se2    0.01370    0.01370    0.01759    0.00000    0.00000    0.00000
+    O1    0.00861    0.00861    0.01440    0.00000    0.00000    0.00000
+    O2    0.00861    0.00861    0.01440    0.00000    0.00000    0.00000

@@ -1,0 +1,223 @@
+{
+    "spec": {
+        "_add_launchpad_and_fw_id": true,
+        "_fworker": "tasks",
+        "mp_id": "mp-1519",
+        "name": "CaTe_c",
+        "_tasks": [
+            {
+                "job": {
+                    "@module": "jobflow.core.job",
+                    "@class": "Job",
+                    "@version": "0.1.16",
+                    "function": {
+                        "@module": "atomate2.common.jobs.phonons",
+                        "@callable": "generate_frequencies_eigenvectors",
+                        "@bound": null
+                    },
+                    "function_args": [],
+                    "function_kwargs": {
+                        "supercell_matrix": {
+                            "@module": "jobflow.core.reference",
+                            "@class": "OutputReference",
+                            "@version": null,
+                            "uuid": "611f58ee-0091-4ca9-8a99-71b35acf4660",
+                            "attributes": [],
+                            "output_schema": null
+                        },
+                        "displacement": 0.01,
+                        "sym_reduce": true,
+                        "symprec": 0.0001,
+                        "use_symmetrized_structure": null,
+                        "kpath_scheme": "seekpath",
+                        "code": "vasp",
+                        "structure": {
+                            "@module": "jobflow.core.reference",
+                            "@class": "OutputReference",
+                            "@version": null,
+                            "uuid": "e45c6b7d-8447-4ba5-9d06-b476f9107f69",
+                            "attributes": [
+                                [
+                                    "a",
+                                    "structure"
+                                ]
+                            ],
+                            "output_schema": null
+                        },
+                        "displacement_data": {
+                            "@module": "jobflow.core.reference",
+                            "@class": "OutputReference",
+                            "@version": null,
+                            "uuid": "fedc1c25-26d1-49da-af36-0e5c084a4949",
+                            "attributes": [],
+                            "output_schema": null
+                        },
+                        "epsilon_static": null,
+                        "born": null,
+                        "total_dft_energy": {
+                            "@module": "jobflow.core.reference",
+                            "@class": "OutputReference",
+                            "@version": null,
+                            "uuid": "b208409c-ecbe-41df-831f-5631987342c2",
+                            "attributes": [
+                                [
+                                    "a",
+                                    "output"
+                                ],
+                                [
+                                    "a",
+                                    "energy"
+                                ]
+                            ],
+                            "output_schema": null
+                        },
+                        "static_run_job_dir": {
+                            "@module": "jobflow.core.reference",
+                            "@class": "OutputReference",
+                            "@version": null,
+                            "uuid": "b208409c-ecbe-41df-831f-5631987342c2",
+                            "attributes": [
+                                [
+                                    "a",
+                                    "dir_name"
+                                ]
+                            ],
+                            "output_schema": null
+                        },
+                        "static_run_uuid": "b208409c-ecbe-41df-831f-5631987342c2",
+                        "born_run_job_dir": null,
+                        "born_run_uuid": null,
+                        "optimization_run_job_dir": {
+                            "@module": "jobflow.core.reference",
+                            "@class": "OutputReference",
+                            "@version": null,
+                            "uuid": "e45c6b7d-8447-4ba5-9d06-b476f9107f69",
+                            "attributes": [
+                                [
+                                    "a",
+                                    "dir_name"
+                                ]
+                            ],
+                            "output_schema": null
+                        },
+                        "optimization_run_uuid": "e45c6b7d-8447-4ba5-9d06-b476f9107f69",
+                        "create_thermal_displacements": false,
+                        "store_force_constants": true
+                    },
+                    "output_schema": {
+                        "@module": "atomate2.common.schemas.phonons",
+                        "@callable": "PhononBSDOSDoc",
+                        "@bound": null
+                    },
+                    "uuid": "c740c044-e860-4f78-b0b5-0a3289aad590",
+                    "index": 1,
+                    "name": "generate_frequencies_eigenvectors",
+                    "metadata": {
+                        "mp_id": "mp-1519",
+                        "name": "CaTe_c"
+                    },
+                    "config": {
+                        "@module": "jobflow.core.job",
+                        "@class": "JobConfig",
+                        "@version": "0.1.16",
+                        "resolve_references": true,
+                        "on_missing_references": "error",
+                        "manager_config": {
+                            "_fworker": "tasks"
+                        },
+                        "expose_store": false,
+                        "pass_manager_config": true,
+                        "response_manager_config": {}
+                    },
+                    "hosts": [
+                        "83ee10f9-74e6-47d7-b51e-fd8df9f78bec"
+                    ],
+                    "metadata_updates": [
+                        {
+                            "update": {
+                                "mp_id": "mp-1519",
+                                "name": "CaTe_c"
+                            },
+                            "name_filter": null,
+                            "function_filter": null,
+                            "dict_mod": false
+                        }
+                    ],
+                    "config_updates": [
+                        {
+                            "config": {
+                                "manager_config": {
+                                    "_fworker": "tasks"
+                                }
+                            },
+                            "name_filter": null,
+                            "function_filter": null,
+                            "attributes": null
+                        }
+                    ],
+                    "data": [
+                        {
+                            "@module": "pymatgen.phonon.dos",
+                            "@callable": "PhononDos",
+                            "@bound": null
+                        },
+                        {
+                            "@module": "pymatgen.phonon.bandstructure",
+                            "@callable": "PhononBandStructureSymmLine",
+                            "@bound": null
+                        },
+                        {
+                            "@module": "atomate2.common.schemas.phonons",
+                            "@callable": "ForceConstants",
+                            "@bound": null
+                        }
+                    ]
+                },
+                "store": null,
+                "_fw_name": "{{jobflow.managers.fireworks.JobFiretask}}"
+            }
+        ]
+    },
+    "fw_id": 733,
+    "created_on": "2024-06-11T13:45:59.998849",
+    "updated_on": "2024-06-14T09:26:41.393646",
+    "launches": [
+        {
+            "fworker": {
+                "name": "tasks",
+                "category": "",
+                "query": "{}",
+                "env": {
+                    "db_file": "/home/jgrandel/.fireworks/db.json",
+                    "vasp_cmd": "mpirun -np ${SLURM_NTASKS} /opt/vasp-6.2.1/bin/vasp_std",
+                    "lobster_cmd": "/home/jgrandel/lobster-4.1.0/lobster-4.1.0/lobster-4.1.0",
+                    "scratch_dir": null,
+                    "auto_npar": true
+                }
+            },
+            "fw_id": 733,
+            "launch_dir": "/home/jgrandel/Documents/Phonon_calculation_results/PCM_Phonon_Database_new/block_2024-06-11-14-03-29-201048/launcher_2024-06-14-09-26-27-886651",
+            "host": "sv3018",
+            "ip": "192.168.30.218",
+            "trackers": [],
+            "action": null,
+            "state": "RUNNING",
+            "state_history": [
+                {
+                    "state": "RESERVED",
+                    "created_on": "2024-06-14T09:26:27.872853",
+                    "updated_on": "2024-06-14T09:26:27.872858",
+                    "reservation_id": "92021"
+                },
+                {
+                    "state": "RUNNING",
+                    "created_on": "2024-06-14T09:26:41.391100",
+                    "updated_on": "2024-06-14T09:26:41.391110"
+                }
+            ],
+            "launch_id": 538
+        }
+    ],
+    "state": "RUNNING",
+    "name": "generate_frequencies_eigenvectors"
+}

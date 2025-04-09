@@ -1,0 +1,43 @@
+data_crystal_structure_P1
+
+_symmetry_space_group_name_H-M     'P 1'
+_symmetry_Int_Tables_number        1
+
+_cell_length_a                     4.20100
+_cell_length_b                     4.20100
+_cell_length_c                     7.00911
+_cell_angle_alpha                  90.00000
+_cell_angle_beta                   90.00000
+_cell_angle_gamma                  120.00000
+_cell_volume                       107.12713
+_cell_formula_units_Z              1
+
+loop_
+_space_group_symop_operation_xyz
+x,y,z
+
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_occupancy
+Ca1    Ca    0.00000   0.00000   0.00000   1.00000
+Zn1    Zn    0.33333   0.66667   0.63249   1.00000
+Zn2    Zn    0.66667   0.33333   0.36751   1.00000
+As1    As    0.33333   0.66667   0.25765   1.00000
+As2    As    0.66667   0.33333   0.74235   1.00000
+loop_
+_atom_site_aniso_label
+_atom_site_aniso_U_11
+_atom_site_aniso_U_22
+_atom_site_aniso_U_33
+_atom_site_aniso_U_23
+_atom_site_aniso_U_13
+_atom_site_aniso_U_12
+   Ca1    0.01376    0.01376    0.01334    0.00000   -0.00000    0.00688
+   Zn1    0.01312    0.01312    0.01687    0.00000   -0.00000    0.00656
+   Zn2    0.01312    0.01312    0.01687    0.00000   -0.00000    0.00656
+   As1    0.00970    0.00970    0.01124    0.00000   -0.00000    0.00485
+   As2    0.00970    0.00970    0.01124    0.00000   -0.00000    0.00485

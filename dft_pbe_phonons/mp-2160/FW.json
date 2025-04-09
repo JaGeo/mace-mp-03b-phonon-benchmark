@@ -1,0 +1,223 @@
+{
+    "spec": {
+        "_add_launchpad_and_fw_id": true,
+        "_fworker": "displacement_calc",
+        "mp_id": "mp-2160",
+        "name": "Sb2Se3_orth",
+        "_tasks": [
+            {
+                "job": {
+                    "@module": "jobflow.core.job",
+                    "@class": "Job",
+                    "@version": "0.1.16",
+                    "function": {
+                        "@module": "atomate2.common.jobs.phonons",
+                        "@callable": "generate_frequencies_eigenvectors",
+                        "@bound": null
+                    },
+                    "function_args": [],
+                    "function_kwargs": {
+                        "supercell_matrix": {
+                            "@module": "jobflow.core.reference",
+                            "@class": "OutputReference",
+                            "@version": null,
+                            "uuid": "b473ccb6-27ed-41c5-998a-e511aacef1ba",
+                            "attributes": [],
+                            "output_schema": null
+                        },
+                        "displacement": 0.01,
+                        "sym_reduce": true,
+                        "symprec": 0.0001,
+                        "use_symmetrized_structure": null,
+                        "kpath_scheme": "seekpath",
+                        "code": "vasp",
+                        "structure": {
+                            "@module": "jobflow.core.reference",
+                            "@class": "OutputReference",
+                            "@version": null,
+                            "uuid": "04978dbf-49e5-4520-b3bf-e318f9ec6a92",
+                            "attributes": [
+                                [
+                                    "a",
+                                    "structure"
+                                ]
+                            ],
+                            "output_schema": null
+                        },
+                        "displacement_data": {
+                            "@module": "jobflow.core.reference",
+                            "@class": "OutputReference",
+                            "@version": null,
+                            "uuid": "742d4980-a5ad-498b-a19f-3a8df2e1fde0",
+                            "attributes": [],
+                            "output_schema": null
+                        },
+                        "epsilon_static": null,
+                        "born": null,
+                        "total_dft_energy": {
+                            "@module": "jobflow.core.reference",
+                            "@class": "OutputReference",
+                            "@version": null,
+                            "uuid": "8c2e86fd-af0b-4ddf-a7f1-849974116f1a",
+                            "attributes": [
+                                [
+                                    "a",
+                                    "output"
+                                ],
+                                [
+                                    "a",
+                                    "energy"
+                                ]
+                            ],
+                            "output_schema": null
+                        },
+                        "static_run_job_dir": {
+                            "@module": "jobflow.core.reference",
+                            "@class": "OutputReference",
+                            "@version": null,
+                            "uuid": "8c2e86fd-af0b-4ddf-a7f1-849974116f1a",
+                            "attributes": [
+                                [
+                                    "a",
+                                    "dir_name"
+                                ]
+                            ],
+                            "output_schema": null
+                        },
+                        "static_run_uuid": "8c2e86fd-af0b-4ddf-a7f1-849974116f1a",
+                        "born_run_job_dir": null,
+                        "born_run_uuid": null,
+                        "optimization_run_job_dir": {
+                            "@module": "jobflow.core.reference",
+                            "@class": "OutputReference",
+                            "@version": null,
+                            "uuid": "04978dbf-49e5-4520-b3bf-e318f9ec6a92",
+                            "attributes": [
+                                [
+                                    "a",
+                                    "dir_name"
+                                ]
+                            ],
+                            "output_schema": null
+                        },
+                        "optimization_run_uuid": "04978dbf-49e5-4520-b3bf-e318f9ec6a92",
+                        "create_thermal_displacements": false,
+                        "store_force_constants": true
+                    },
+                    "output_schema": {
+                        "@module": "atomate2.common.schemas.phonons",
+                        "@callable": "PhononBSDOSDoc",
+                        "@bound": null
+                    },
+                    "uuid": "0587e58e-f05d-4c75-ae42-c8301e47d00c",
+                    "index": 1,
+                    "name": "generate_frequencies_eigenvectors",
+                    "metadata": {
+                        "mp_id": "mp-2160",
+                        "name": "Sb2Se3_orth"
+                    },
+                    "config": {
+                        "@module": "jobflow.core.job",
+                        "@class": "JobConfig",
+                        "@version": "0.1.16",
+                        "resolve_references": true,
+                        "on_missing_references": "error",
+                        "manager_config": {
+                            "_fworker": "displacement_calc"
+                        },
+                        "expose_store": false,
+                        "pass_manager_config": true,
+                        "response_manager_config": {}
+                    },
+                    "hosts": [
+                        "d6a5fae3-7a5f-4338-9639-3b17a42ef314"
+                    ],
+                    "metadata_updates": [
+                        {
+                            "update": {
+                                "mp_id": "mp-2160",
+                                "name": "Sb2Se3_orth"
+                            },
+                            "name_filter": null,
+                            "function_filter": null,
+                            "dict_mod": false
+                        }
+                    ],
+                    "config_updates": [
+                        {
+                            "config": {
+                                "manager_config": {
+                                    "_fworker": "displacement_calc"
+                                }
+                            },
+                            "name_filter": null,
+                            "function_filter": null,
+                            "attributes": null
+                        }
+                    ],
+                    "data": [
+                        {
+                            "@module": "pymatgen.phonon.dos",
+                            "@callable": "PhononDos",
+                            "@bound": null
+                        },
+                        {
+                            "@module": "pymatgen.phonon.bandstructure",
+                            "@callable": "PhononBandStructureSymmLine",
+                            "@bound": null
+                        },
+                        {
+                            "@module": "atomate2.common.schemas.phonons",
+                            "@callable": "ForceConstants",
+                            "@bound": null
+                        }
+                    ]
+                },
+                "store": null,
+                "_fw_name": "{{jobflow.managers.fireworks.JobFiretask}}"
+            }
+        ]
+    },
+    "fw_id": 435,
+    "created_on": "2024-02-12T23:46:48.113380",
+    "updated_on": "2024-02-26T06:29:25.066108",
+    "launches": [
+        {
+            "fworker": {
+                "name": "displacement_calc",
+                "category": "",
+                "query": "{}",
+                "env": {
+                    "db_file": "/home/jgrandel/.fireworks/db.json",
+                    "vasp_cmd": "mpirun -np ${SLURM_NTASKS} /opt/vasp-6.2.1/bin/vasp_std",
+                    "lobster_cmd": "/home/jgrandel/lobster-4.1.0/lobster-4.1.0/lobster-4.1.0",
+                    "scratch_dir": null,
+                    "auto_npar": true
+                }
+            },
+            "fw_id": 435,
+            "launch_dir": "/home/jgrandel/Documents/Phonon_calculation_results/PCM_Phonon_Database/block_2024-02-12-23-49-00-258306/launcher_2024-02-26-06-29-14-783345",
+            "host": "sv3005",
+            "ip": "192.168.30.205",
+            "trackers": [],
+            "action": null,
+            "state": "RUNNING",
+            "state_history": [
+                {
+                    "state": "RESERVED",
+                    "created_on": "2024-02-26T06:29:14.761337",
+                    "updated_on": "2024-02-26T06:29:14.761346",
+                    "reservation_id": "80778"
+                },
+                {
+                    "state": "RUNNING",
+                    "created_on": "2024-02-26T06:29:25.062584",
+                    "updated_on": "2024-02-26T06:29:25.062590"
+                }
+            ],
+            "launch_id": 369
+        }
+    ],
+    "state": "RUNNING",
+    "name": "generate_frequencies_eigenvectors"
+}

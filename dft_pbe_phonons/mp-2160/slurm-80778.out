@@ -1,0 +1,10 @@
+/var/spool/slurm/d/job80778/slurm_script: line 14: activate: No such file or directory
+2024-02-26 07:29:19,127 INFO Hostname/IP lookup (this will take a few seconds)
+2024-02-26 07:29:19,127 INFO Launching Rocket
+2024-02-26 07:29:25,089 INFO RUNNING fw_id: 435 in directory: /home/jgrandel/Documents/Phonon_calculation_results/PCM_Phonon_Database/block_2024-02-12-23-49-00-258306/launcher_2024-02-26-06-29-14-783345
+2024-02-26 07:29:25,107 INFO Task started: {{jobflow.managers.fireworks.JobFiretask}}.
+2024-02-26 07:29:25,125 INFO Starting job - generate_frequencies_eigenvectors (0587e58e-f05d-4c75-ae42-c8301e47d00c)
+The PostScript backend does not support transparency; partially transparent artists will be rendered opaque.
+2024-02-26 07:30:30,839 INFO Finished job - generate_frequencies_eigenvectors (0587e58e-f05d-4c75-ae42-c8301e47d00c)
+2024-02-26 07:30:30,962 INFO Task completed: {{jobflow.managers.fireworks.JobFiretask}}
+2024-02-26 07:30:30,993 INFO Rocket finished

@@ -1,0 +1,41 @@
+data_crystal_structure_P1
+
+_symmetry_space_group_name_H-M     'P 1'
+_symmetry_Int_Tables_number        1
+
+_cell_length_a                     4.60198
+_cell_length_b                     4.60198
+_cell_length_c                     8.70696
+_cell_angle_alpha                  113.41447
+_cell_angle_beta                   113.41445
+_cell_angle_gamma                  57.54077
+_cell_volume                       138.68309
+_cell_formula_units_Z              1
+
+loop_
+_space_group_symop_operation_xyz
+x,y,z
+
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_occupancy
+Bi1    Bi    0.17575   0.17575   0.82613   1.00000
+Te1    Te    0.67575   0.67575   0.32613   1.00000
+Te2    Te    0.96976   0.96976   0.06420   1.00000
+Te3    Te    0.38175   0.38175   0.58805   1.00000
+loop_
+_atom_site_aniso_label
+_atom_site_aniso_U_11
+_atom_site_aniso_U_22
+_atom_site_aniso_U_33
+_atom_site_aniso_U_23
+_atom_site_aniso_U_13
+_atom_site_aniso_U_12
+   Bi1    0.02613    0.02619    0.03183    0.00387    0.00386   -0.01113
+   Te1    0.03218    0.03222    0.03817    0.00884    0.00881   -0.00902
+   Te2    0.02918    0.02928    0.02800    0.00503    0.00504   -0.01109
+   Te3    0.02918    0.02928    0.02800    0.00503    0.00504   -0.01109

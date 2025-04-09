@@ -1,0 +1,11 @@
+/var/spool/slurm/d/job96944/slurm_script: line 14: activate: No such file or directory
+2024-07-28 12:35:42,936 INFO Hostname/IP lookup (this will take a few seconds)
+2024-07-28 12:35:42,938 INFO Launching Rocket
+2024-07-28 12:35:48,584 INFO RUNNING fw_id: 1176 in directory: /home/jgrandel/Documents/Phonon_calculation_results/PCM_Phonon_Database_new/block_2024-06-11-14-03-29-201048/launcher_2024-07-28-10-35-38-053441
+2024-07-28 12:35:48,604 INFO Task started: {{jobflow.managers.fireworks.JobFiretask}}.
+2024-07-28 12:35:48,626 INFO Starting job - generate_frequencies_eigenvectors (4b20395b-f841-40d1-a60d-b64b54b9743b)
+The PostScript backend does not support transparency; partially transparent artists will be rendered opaque.
+Warning: Point group symmetries of supercell and primitivecell are different.
+2024-07-28 12:38:05,683 INFO Finished job - generate_frequencies_eigenvectors (4b20395b-f841-40d1-a60d-b64b54b9743b)
+2024-07-28 12:38:06,087 INFO Task completed: {{jobflow.managers.fireworks.JobFiretask}}
+2024-07-28 12:38:06,122 INFO Rocket finished

@@ -1,0 +1,53 @@
+data_crystal_structure_P1
+
+_symmetry_space_group_name_H-M     'P 1'
+_symmetry_Int_Tables_number        1
+
+_cell_length_a                     7.59278
+_cell_length_b                     7.59278
+_cell_length_c                     7.59278
+_cell_angle_alpha                  121.58403
+_cell_angle_beta                   121.58403
+_cell_angle_gamma                  87.27760
+_cell_volume                       301.73791
+_cell_formula_units_Z              1
+
+loop_
+_space_group_symop_operation_xyz
+x,y,z
+
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_occupancy
+Ga1    Ga    0.65188   0.42636   0.22552   1.00000
+Ga2    Ga    0.17636   0.45085   0.27448   1.00000
+Ga3    Ga    0.17636   0.90188   0.72552   1.00000
+Ga4    Ga    0.20085   0.42636   0.77448   1.00000
+Te1    Te    0.02969   0.02969   1.00000   1.00000
+Te2    Te    0.77969   0.27969   0.50000   1.00000
+Se1    Se    0.90077   0.64929   0.25148   1.00000
+Se2    Se    0.39929   0.64782   0.24852   1.00000
+Se3    Se    0.39929   0.15077   0.75148   1.00000
+Se4    Se    0.39782   0.64929   0.74852   1.00000
+loop_
+_atom_site_aniso_label
+_atom_site_aniso_U_11
+_atom_site_aniso_U_22
+_atom_site_aniso_U_33
+_atom_site_aniso_U_23
+_atom_site_aniso_U_13
+_atom_site_aniso_U_12
+   Ga1    0.01791    0.02868    0.02631    0.01777    0.01083    0.00521
+   Ga2    0.02868    0.02318    0.02631    0.01308    0.02001    0.00785
+   Ga3    0.02868    0.01791    0.02631    0.01083    0.01777    0.00521
+   Ga4    0.02318    0.02868    0.02631    0.02001    0.01308    0.00785
+   Te1    0.05940    0.02355    0.04995    0.01400    0.04457    0.00713
+   Te2    0.02355    0.05940    0.04995    0.04457    0.01400    0.00713
+   Se1    0.01728    0.02723    0.02526    0.01676    0.01057    0.00489
+   Se2    0.02723    0.02265    0.02526    0.01286    0.01905    0.00758
+   Se3    0.02723    0.01728    0.02526    0.01057    0.01676    0.00489
+   Se4    0.02265    0.02723    0.02526    0.01905    0.01286    0.00758
