@@ -27,11 +27,11 @@ The geometric optimization was performed twice with the following settings:
 `NSW` = 99  
 `PREC` = Accurate   
 `SIGMA` = 0.05  
-The number of k-points was set to 300 $\frac{\text{k-points}}{\AA^{-3}}$.
+The number of k-points was set to 300 $\frac{\text{k-points}}{Å^{-3}}$.
 
-The single atom displaced supercells were constructed with a minimum edge length of 20 $\AA$ and a cubic shape of 90° angles.
-Single atoms were displaced by 0.01 $\AA$. 
-The ionic convergence criterion was set to 1e−6 eV and the calculation was performed using only a single k-point at $\Gamma$  
+The single atom displaced supercells were constructed with a minimum edge length of 20 Å and a cubic shape of 90° angles.
+Single atoms were displaced by 0.01 Å. 
+The ionic convergence criterion was set to 1e−6 eV and the calculation was performed using only a single k-point at $\Gamma$.  
 
 ### evaluation
 
