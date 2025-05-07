@@ -45,7 +45,8 @@ Plotting and metric functions used during evaluation.
 ### mp_0b3_medium_phonons
 
 Phonon calculations with the MP-0b3 model, performed using the Atomate2 `PhononMaker`.
-Relaxation of the primitive cell and force calculation of the single atom displaced supercells were performed with the MP-0b3 model.
+Geometric optimisation of the primitive cell and force calculation of the single atom displaced supercells were performed with the MP-0b3 model.
+During relaxation the stop criterion was set to 1e-5 eV/Å.
 The same supercell matrix was used for the DFT and MACE calculations.
 
 ### plots
