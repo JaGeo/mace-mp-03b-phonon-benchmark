@@ -7,7 +7,7 @@ from functions import fine_tuning
 from functions.phonon import Phonon_Properties
 from functions.plots import PhononPlotter
 import numpy as np
-import matplotlib.pyplot as splt
+import matplotlib.pyplot as plt
 import pandas as pd
 
 for mp_id in os.listdir("./dft_pbe_phonons"):
@@ -60,7 +60,7 @@ for mp_id in os.listdir("./dft_pbe_phonons"):
         )
         fig, ax = plot.beautiful_phonon_plotter()
         plt.savefig(
-            f"./mace_phonons/plots/{mp_id}.png",
+            f"./plots/{mp_id}.png",
             dpi=300,
             bbox_inches="tight",
         )
