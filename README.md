@@ -23,6 +23,9 @@ Phonon calculations with the MP-0b3 model, performed using the Atomate2 `PhononM
 Relaxation of the pimitive cell and force calculation of the single atom displaced supercells where performed with the MP-0b3 model.
 For the DFT and MACE calculations the same supercell matrix was used. 
 
+### plots
+DFT Phonon bandstructures (black) and MACE-MP-0b3 phononbandstructures (red) plotted together.
+
 ### phonon_properties.csv
 
 The columns in the `phonon_properties.csv` file have the following meanings:
