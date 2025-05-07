@@ -29,8 +29,6 @@ import copy
 from phonopy.phonon.band_structure import get_band_qpoints
 from phonopy.phonon.band_structure import BandStructure, get_band_qpoints_by_seekpath
 import sys
-
-sys.path.append("/home/jgrandel/project_2025")
 from functions.metric import (
     calculate_rmse,
     calculate_mae,

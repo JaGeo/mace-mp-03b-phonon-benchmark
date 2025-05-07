@@ -7,22 +7,22 @@ from functions import fine_tuning
 from functions.phonon import Phonon_Properties
 from functions.plots import PhononPlotter
 import numpy as np
-import matplotlib.pyplot as plt
+import matplotlib.pyplot as splt
 import pandas as pd
 
-for mp_id in os.listdir("/home/jgrandel/mace_phonons/dft_pbe_phonons"):
+for mp_id in os.listdir("./dft_pbe_phonons"):
     try:
-        df = pd.read_csv("/home/jgrandel/mace_phonons/phonon_properties.csv")
+        df = pd.read_csv("./phonon_properties.csv")
         if mp_id in df["material"].values:
             continue
     except:
         pass
     print(mp_id)
     phonopy_yaml = (
-        f"/home/jgrandel/mace_phonons/mp_0b3_medium_phonons/{mp_id}/phonopy.yaml"
+        f"./mp_0b3_medium_phonons/{mp_id}/phonopy.yaml"
     )
     phonopy_yaml_dft = (
-        f"/home/jgrandel/mace_phonons/dft_pbe_phonons/{mp_id}/phonopy.yaml"
+        f"./dft_pbe_phonons/{mp_id}/phonopy.yaml"
     )
 
     if not os.path.exists(phonopy_yaml) or not os.path.exists(phonopy_yaml_dft):
@@ -31,12 +31,12 @@ for mp_id in os.listdir("/home/jgrandel/mace_phonons/dft_pbe_phonons"):
 
     phonon_prop = Phonon_Properties(phonopy_yaml=phonopy_yaml)
     if os.path.exists(
-        os.path.join("/home/jgrandel/mace_phonons/dft_pbe_phonons", mp_id, "FORCE_SETS")
+        os.path.join("./dft_pbe_phonons", mp_id, "FORCE_SETS")
     ):
         phonon_prop_dft = Phonon_Properties(
             phonopy_yaml=phonopy_yaml_dft,
             force_sets_filename=os.path.join(
-                "/home/jgrandel/mace_phonons/dft_pbe_phonons", mp_id, "FORCE_SETS"
+                "./dft_pbe_phonons", mp_id, "FORCE_SETS"
             ),
         )
     else:
@@ -60,7 +60,7 @@ for mp_id in os.listdir("/home/jgrandel/mace_phonons/dft_pbe_phonons"):
         )
         fig, ax = plot.beautiful_phonon_plotter()
         plt.savefig(
-            f"/home/jgrandel/mace_phonons/new_prints/{mp_id}.png",
+            f"./mace_phonons/plots/{mp_id}.png",
             dpi=300,
             bbox_inches="tight",
         )
@@ -100,10 +100,10 @@ for mp_id in os.listdir("/home/jgrandel/mace_phonons/dft_pbe_phonons"):
         "benchmark_volume": phonon_prop_dft.get_volume(),
     }
 
-    if os.path.exists("/home/jgrandel/mace_phonons/phonon_properties.csv"):
+    if os.path.exists("./phonon_properties.csv"):
         df = pd.concat([df, pd.DataFrame(data, index=[0])], ignore_index=True)
     else:
         df = pd.DataFrame(data, index=[0])
 
     print(df)
-    df.to_csv("/home/jgrandel/mace_phonons/phonon_properties.csv", index=False)
+    df.to_csv("./phonon_properties.csv", index=False)
