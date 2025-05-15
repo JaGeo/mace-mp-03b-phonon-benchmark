@@ -25,7 +25,7 @@ _atom_site_fract_z
 _atom_site_occupancy
 Li1    Li    0.25000   0.25000   0.25000   1.00000
 Cd1    Cd    0.50000   0.50000   0.50000   1.00000
-Sb1    Sb    1.00000   0.00000   0.00000   1.00000
+Sb1    Sb    0.00000   1.00000   1.00000   1.00000
 loop_
 _atom_site_aniso_label
 _atom_site_aniso_U_11

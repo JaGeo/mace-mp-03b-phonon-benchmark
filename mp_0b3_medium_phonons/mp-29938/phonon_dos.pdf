@@ -2,7 +2,7 @@
 %%LanguageLevel: 3
 %%Title: phonon_dos.pdf
 %%Creator: Matplotlib v3.10.0, https://matplotlib.org/
-%%CreationDate: Thu Dec 19 18:22:35 2024
+%%CreationDate: Tue Mar  4 18:51:16 2025
 %%Orientation: portrait
 %%BoundingBox: 0 0 864 576
 %%HiResBoundingBox: 0.000000 0.000000 864.000000 576.000000
@@ -1248,7 +1248,7 @@ gsave
 585.850909 427.62117 l
 588.894545 63.36 l
 591.938182 63.36 l
-594.981818 333.716505 l
+594.981818 333.716504 l
 598.025455 316.502902 l
 601.069091 157.486888 l
 604.112727 91.214884 l

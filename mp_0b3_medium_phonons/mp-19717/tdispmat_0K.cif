@@ -23,7 +23,7 @@ _atom_site_fract_x
 _atom_site_fract_y
 _atom_site_fract_z
 _atom_site_occupancy
-Te1    Te    1.00000   1.00000   1.00000   1.00000
+Te1    Te    1.00000   1.00000   0.00000   1.00000
 Pb1    Pb    0.50000   0.50000   0.50000   1.00000
 loop_
 _atom_site_aniso_label

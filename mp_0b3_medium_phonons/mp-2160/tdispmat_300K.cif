@@ -3,13 +3,13 @@ data_crystal_structure_P1
 _symmetry_space_group_name_H-M     'P 1'
 _symmetry_Int_Tables_number        1
 
-_cell_length_a                     13.74856
+_cell_length_a                     13.74855
 _cell_length_b                     4.05495
 _cell_length_c                     11.30983
 _cell_angle_alpha                  90.00000
 _cell_angle_beta                   90.00000
 _cell_angle_gamma                  90.00000
-_cell_volume                       630.51887
+_cell_volume                       630.51874
 _cell_formula_units_Z              1
 
 loop_

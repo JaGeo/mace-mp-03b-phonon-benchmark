@@ -10,14 +10,15 @@ def calculate_rmse(true_value, evaluated_value):
     true_value: np.ndarray - true value
     evalutated_value: np.ndarray - evaluated value
     """
-    if len(true_value) != len(evaluated_value):
+    if true_value.shape != evaluated_value.shape:
         return None
-    elif len(true_value) == 0:
-        raise ValueError(f"Length of true value and evaluated value is 0")
-    else:
-        diff = np.array(true_value) - np.array(evaluated_value)
-        rmse = np.sqrt(np.mean(diff**2))
-        return rmse
+    if len(true_value) == 0:
+        raise ValueError(f"RMSE: Length of true value and evaluated value is 0")
+    true_value = np.sort(true_value, axis=-1)
+    evaluated_value = np.sort(evaluated_value, axis=-1)
+    diff = np.array(true_value) - np.array(evaluated_value)
+    rmse = np.sqrt(np.mean(diff**2))
+    return rmse
 
 
 def calculate_rrmse(true_value, evaluated_value):
@@ -25,14 +26,15 @@ def calculate_rrmse(true_value, evaluated_value):
     true_value: np.ndarray - true value
     evaluated_value: np.ndarray - evaluated value
     """
-    if len(true_value) != len(evaluated_value):
+    if true_value.shape != evaluated_value.shape:
         return None
-    elif len(true_value) == 0:
-        raise ValueError(f"Length of true value and evaluated value is 0")
-    else:
-        rms = np.sqrt(np.mean(true_value**2))
-        rrmse = calculate_rmse(true_value, evaluated_value) / rms
-        return rrmse
+    if len(true_value) == 0:
+        raise ValueError(f"RRMSE: Length of true value and evaluated value is 0")
+    true_value = np.sort(true_value, axis=-1)
+    evaluated_value = np.sort(evaluated_value, axis=-1)
+    rms = np.sqrt(np.mean(true_value**2))
+    rrmse = calculate_rmse(true_value, evaluated_value) / rms
+    return rrmse
 
 
 def calculate_mae(true_value, evaluated_value):
@@ -40,14 +42,15 @@ def calculate_mae(true_value, evaluated_value):
     true_value: np.ndarray - true value
     evaluated_value: np.ndarray - evaluated value
     """
-    if len(true_value) != len(evaluated_value):
+    if true_value.shape != evaluated_value.shape:
         return None
-    elif len(true_value) == 0:
-        raise ValueError(f"Length of true value and evaluated value is 0")
-    else:
-        diff = np.array(true_value) - np.array(evaluated_value)
-        mae = np.mean(np.abs(diff))
-        return mae
+    if len(true_value) == 0:
+        raise ValueError(f"MAE: Length of true value and evaluated value is 0")
+    true_value = np.sort(true_value, axis=-1)
+    evaluated_value = np.sort(evaluated_value, axis=-1)
+    diff = np.array(true_value) - np.array(evaluated_value)
+    mae = np.mean(np.abs(diff))
+    return mae
 
 
 def calculate_r2(true_value, evaluated_value):
@@ -55,15 +58,14 @@ def calculate_r2(true_value, evaluated_value):
     true_value: np.ndarray - true value
     evaluated_value: np.ndarray - evaluated value
     """
-    if len(true_value) != len(evaluated_value):
+    if true_value.shape != evaluated_value.shape:
         return None
-    elif len(true_value) == 0:
-        raise ValueError(f"Length of true value and evaluated value is 0")
-    else:
-        r2 = r2_score(
-            np.array(true_value).flatten(), np.array(evaluated_value).flatten()
-        )
-        return r2
+    if len(true_value) == 0:
+        raise ValueError(f"R^2: Length of true value and evaluated value is 0")
+    true_value = np.sort(true_value, axis=-1)
+    evaluated_value = np.sort(evaluated_value, axis=-1)
+    r2 = r2_score(np.array(true_value).flatten(), np.array(evaluated_value).flatten())
+    return r2
 
 
 def phonon_rmse(true_mesh_dict, evaluated_mesh_dict):
@@ -72,8 +74,11 @@ def phonon_rmse(true_mesh_dict, evaluated_mesh_dict):
     true_mesh_dict: dict - true mesh dict  phonon.get_mesh_dict()
     evaluated_mesh_dict: dict - evaluated mesh dict phonon.get_mesh_dict()
     """
+    if true_mesh_dict["frequencies"].shape != evaluated_mesh_dict["frequencies"].shape:
+        return None
     f_dft = true_mesh_dict["frequencies"]
     f_ml = evaluated_mesh_dict["frequencies"]
+
     w = true_mesh_dict["weights"]
     f_dft_sorted = np.sort(f_dft, axis=1)
     f_ml_sorted = np.sort(f_ml, axis=1)
@@ -82,6 +87,8 @@ def phonon_rmse(true_mesh_dict, evaluated_mesh_dict):
     # rmse = np.sqrt(np.mean(w_reshape*diff**2)/np.mean(w_reshape))
     # same expression but more explicit
     rmse = np.sqrt(1 / len(f_dft_sorted[0]) * (np.sum(w_reshape * diff**2) / np.sum(w)))
+    print("a= ", rmse)
+    print("b= ", np.sqrt(np.average(diff**2, weights=w_reshape)))
     return rmse
 
 
@@ -91,6 +98,8 @@ def phonon_mae(true_mesh_dict, evaluated_mesh_dict):
     true_mesh_dict: dict - true mesh dict  phonon.get_mesh_dict()
     evaluated_mesh_dict: dict - evaluated mesh dict phonon.get_mesh_dict()
     """
+    if true_mesh_dict["frequencies"].shape != evaluated_mesh_dict["frequencies"].shape:
+        return None
     f_dft = true_mesh_dict["frequencies"]
     f_ml = evaluated_mesh_dict["frequencies"]
     w = true_mesh_dict["weights"]
@@ -108,6 +117,8 @@ def phonon_rrmse(true_mesh_dict, evaluated_mesh_dict):
     true_mesh_dict: dict - true mesh dict  phonon.get_mesh_dict()
     evaluated_mesh_dict: dict - evaluated mesh dict phonon.get_mesh_dict()
     """
+    if true_mesh_dict["frequencies"].shape != evaluated_mesh_dict["frequencies"].shape:
+        return None
     f_dft = true_mesh_dict["frequencies"]
     w = true_mesh_dict["weights"]
     f_dft_sorted = np.sort(f_dft, axis=1)
@@ -127,6 +138,8 @@ def phonon_shifted_rmse(true_mesh_dict, evaluated_mesh_dict):
     true_mesh_dict: dict - true mesh dict  phonon.get_mesh_dict()
     evaluated_mesh_dict: dict - evaluated mesh dict phonon.get_mesh_dict()
     """
+    if true_mesh_dict["frequencies"].shape != evaluated_mesh_dict["frequencies"].shape:
+        return None
     f_dft = true_mesh_dict["frequencies"]
     f_ml = evaluated_mesh_dict["frequencies"]
     scaling_factor = np.max(f_dft) / np.max(f_ml)

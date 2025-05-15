@@ -1,18 +1,6 @@
-from pymatgen.io.vasp import inputs
-from mp_api.client import MPRester
 from atomate2.vasp.flows.phonons import PhononMaker
-from atomate2.vasp.jobs.mp import MPGGAStaticMaker
-from atomate2.vasp.powerups import (
-    update_user_incar_settings,
-    update_user_kpoints_settings,
-)
-from atomate2.vasp.flows.mp import MPGGADoubleRelaxMaker
-from pymatgen.io.vasp import Incar, Kpoints
-from atomate2.common.jobs.phonons import get_supercell_size
-from atomate2.common.flows.phonons import BasePhononMaker
+from pymatgen.io.vasp import Kpoints
 from atomate2.forcefields.jobs import (
-    MACERelaxMaker,
-    MACEStaticMaker,
     ForceFieldRelaxMaker,
     ForceFieldStaticMaker,
 )
@@ -22,13 +10,16 @@ from pymatgen.core import Structure
 import json
 from phonopy import load
 from phonopy.units import VaspToTHz
-from pymatgen.io.phonopy import get_pmg_structure, get_ph_bs_symm_line
+from pymatgen.io.phonopy import get_pmg_structure
 import numpy as np
 from pymatgen.symmetry.kpath import KPathSeek
 import copy
 from phonopy.phonon.band_structure import get_band_qpoints
-from phonopy.phonon.band_structure import BandStructure, get_band_qpoints_by_seekpath
+from phonopy.phonon.band_structure import get_band_qpoints_by_seekpath
 import sys
+
+
+sys.path.append("/home/jgrandel/project_2025")
 from functions.metric import (
     calculate_rmse,
     calculate_mae,
@@ -40,10 +31,10 @@ from functions.metric import (
     mean_phonon_frequency,
 )
 from pymatgen.core.structure import Structure
-from pymatgen.core.lattice import Lattice
 import json
 import os
 from pymatgen.analysis.structure_matcher import StructureMatcher
+from scipy.integrate import simpson
 
 
 def calculate_phonon(
@@ -60,20 +51,23 @@ def calculate_phonon(
     """calculate phonon dispersion relation with phonopy and mace model"""
 
     calculator_kwargs = {
-        "device": "cpu",
+        "device": f"{device}",
         "default_dtype": "float64",
         "model": model_path,
     }
 
     relax_kwargs = {
         "fmax": 0.00001,
-        "steps": 2000,
+        "interval": 100,
     }
 
     phonon = PhononMaker(
         name=name,
         bulk_relax_maker=ForceFieldRelaxMaker(
-            calculator_kwargs=calculator_kwargs, force_field_name="MACE"
+            calculator_kwargs=calculator_kwargs,
+            relax_kwargs=relax_kwargs,
+            force_field_name="MACE",
+            steps=2000,
         ),
         born_maker=None,
         phonon_displacement_maker=ForceFieldStaticMaker(
@@ -189,15 +183,14 @@ class Phonon_Properties:
             phonon.run_band_structure(
                 paths=paths, labels=labels, is_band_connection=True
             )
+            self.bandstructure_dict = phonon.get_band_structure_dict()
             self.labels_for_plot = labels
             self.paths = paths
-            self.bandstructure_dict = phonon.get_band_structure_dict()
         return self.bandstructure_dict
 
-    def _run_dos(self, mesh=None, symmetry=True):
+    def _run_dos(self, symmetry=True):
         phonon = self._load_phonopy_object()
-        if mesh is None:
-            mesh = [20, 20, 20]
+        mesh = [20, 20, 20]
         phonon.run_mesh(mesh=mesh, is_mesh_symmetry=symmetry, is_time_reversal=symmetry)
         phonon.run_total_dos(sigma=0.05)
         self.dos_dict = phonon.get_total_dos_dict()
@@ -217,28 +210,33 @@ class Phonon_Properties:
             other.bandstructure_dict = other._run_bands_structure_dict()
         freq1 = np.array(self.bandstructure_dict["frequencies"])
         freq2 = np.array(other.bandstructure_dict["frequencies"])
-        self.rmse = calculate_rmse(true_value=freq1, evaluated_value=freq2)
-        self.mae = calculate_mae(true_value=freq1, evaluated_value=freq2)
-        self.r2 = calculate_r2(true_value=freq1, evaluated_value=freq2)
 
+        self.rmse = calculate_rmse(true_value=freq2, evaluated_value=freq1)
+        self.mae = calculate_mae(true_value=freq2, evaluated_value=freq1)
+        self.r2 = calculate_r2(true_value=freq2, evaluated_value=freq1)
+        # Run DOS with symmetry first
         if self.dos_dict is None:
-            self.dos_dict = self._run_dos()
+            self.dos_dict = self._run_dos(symmetry=True)
         if other.dos_dict is None:
-            other.dos_dict = other._run_dos()
+            other.dos_dict = other._run_dos(symmetry=True)
+        # If shapes don't match, rerun without symmetry
+        print(self.mesh_dict["frequencies"].shape)
+        print(other.mesh_dict["frequencies"].shape)
+        if self.mesh_dict["frequencies"].shape != other.mesh_dict["frequencies"].shape:
+            self.dos_dict = self._run_dos(symmetry=False)
+            other.dos_dict = other._run_dos(symmetry=False)
+
         mesh1 = self.mesh_dict
         mesh2 = other.mesh_dict
-        if mesh1["frequencies"].shape != mesh2["frequencies"].shape:
-            self._run_dos(symmetry=False)
-            other._run_dos(symmetry=False)
-        mesh1 = self.mesh_dict
-        mesh2 = other.mesh_dict
-        self.phonon_rmse = phonon_rmse(true_mesh_dict=mesh1, evaluated_mesh_dict=mesh2)
-        self.phonon_mae = phonon_mae(true_mesh_dict=mesh1, evaluated_mesh_dict=mesh2)
+        print(np.array(mesh1["frequencies"]).shape)
+        print(np.array(mesh2["frequencies"]).shape)
+        self.phonon_rmse = phonon_rmse(true_mesh_dict=mesh2, evaluated_mesh_dict=mesh1)
+        self.phonon_mae = phonon_mae(true_mesh_dict=mesh2, evaluated_mesh_dict=mesh1)
         self.phonon_scaled_rmse = phonon_shifted_rmse(
-            true_mesh_dict=mesh1, evaluated_mesh_dict=mesh2
+            true_mesh_dict=mesh2, evaluated_mesh_dict=mesh1
         )
         self.phonon_rrmse = phonon_rrmse(
-            true_mesh_dict=mesh1, evaluated_mesh_dict=mesh2
+            true_mesh_dict=mesh2, evaluated_mesh_dict=mesh1
         )
 
     def get_metrics(self, other):
@@ -299,3 +297,91 @@ class Phonon_Properties:
             self.rms_displacement = None
             self.max_displacement = None
         return self.rms_displacement, self.max_displacement
+
+    def get_thermal_properties(self, temperature: float = 300):
+        """
+        calculates heat_capacity, entropy and free energy of the system at a given temperature
+        temperature: float or list - temperature in Kelvin or list of temperatures
+        """
+        if isinstance(temperature, (int, float)):
+            temperature = [float(temperature)]
+
+        if self.mesh_dict is None:
+            self._run_dos(symmetry=True)
+        self.phonon_object.set_thermal_properties(temperatures=temperature)
+        thermal_properties = self.phonon_object.get_thermal_properties_dict()
+        self.heat_capacity = thermal_properties["heat_capacity"]
+        self.entropy = thermal_properties["entropy"]
+        self.free_energy = thermal_properties["free_energy"]
+        if len(temperature) == 1:
+            self.heat_capacity = self.heat_capacity[0]
+            self.entropy = self.entropy[0]
+            self.free_energy = self.free_energy[0]
+        else:
+            self.heat_capacity = np.array(self.heat_capacity)
+            self.entropy = np.array(self.entropy)
+            self.free_energy = np.array(self.free_energy)
+        return self.heat_capacity, self.entropy, self.free_energy
+
+    def get_agne_high_temperature_limit(self):
+        """
+        calculates the agne diffusive thermal conductivity high temperature limit
+        """
+        if self.structure is None:
+            self.structure = self._get_structure()
+        n_sites = len(self.structure)
+        site_density = 10**30 * n_sites / self.get_volume()
+        return (
+            (site_density ** (1 / 3))
+            * 1.3806e-23
+            * 10**12
+            * 2
+            * self.get_mean_frequency()
+        )  # w -->2np.pi*w
+
+    def get_ange_diffusive_thermal_conductivity(
+        self, temperature: list = np.linspace(0.01, 500, 1000)
+    ):
+        """
+        calculates the agne diffusive thermal conductivity
+        in the hight temperature limit T->inf the values converge against get_agne_high_temperature_limit function
+        temperature: list - temperature in Kelvin
+        """
+        if self.mesh_dict is None:
+            self._run_dos(symmetry=True)
+        if self.structure is None:
+            self.structure = self._get_structure()
+        omega = self.dos_dict["frequency_points"] * 1e12
+        g = self.dos_dict["total_dos"] * (1 / (1e-30 * self.get_volume() * 1e12))
+        n_sites = len(self.structure)
+        site_density = 10**30 * n_sites / self.get_volume()
+        kdiff = [self._kdiff(T_i, site_density, g, omega) for T_i in temperature]
+        kdiff = np.array(kdiff)
+        return np.array(temperature), kdiff
+
+    def _kdiff(self, T_i, site_density, g, omega, threshold=1e-8):
+        """
+        calculates the agne diffusive thermal conductivity
+        T_i: float - temperature in Kelvin
+        site_density: float - number of sites in the structure per volume
+        g(omega): array - phonon density of states
+        omega: array - phonon frequencies
+        """
+        # used physical constants
+        k_B = 1.380649e-23  # [J/K]
+        hbar = 1.0545718e-34  # [J·s]
+
+        g = g[omega > threshold]
+        omega = omega[omega > threshold]
+
+        x = hbar * omega * 2 * np.pi / (k_B * T_i)
+        integrand = (
+            (g / (3 * site_density))
+            * (x**2)
+            * (np.exp(x) / ((np.exp(x) - 1) ** 2))
+            * omega
+            * 2
+            * np.pi
+        )
+        integral_value = simpson(integrand, x=omega)
+        return ((site_density ** (1 / 3)) * k_B / (np.pi)) * integral_value

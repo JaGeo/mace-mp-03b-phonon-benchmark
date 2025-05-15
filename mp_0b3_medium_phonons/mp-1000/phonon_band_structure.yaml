@@ -13,15 +13,15 @@ reciprocal_lattice:
 - [   0.14230037,   0.14230037,  -0.14230037 ] # c*
 natom: 2      
 lattice:
-- [    -0.000000000000000,     3.513694189599716,     3.513694189599712 ] # a
-- [     3.513694189599718,     0.000000000000004,     3.513694189599706 ] # b
-- [     3.513694189599718,     3.513694189599712,     0.000000000000006 ] # c
+- [    -0.000000000000000,     3.513694189599691,     3.513694189599720 ] # a
+- [     3.513694189599719,     0.000000000000003,     3.513694189599713 ] # b
+- [     3.513694189599719,     3.513694189599688,     0.000000000000008 ] # c
 points:
 - symbol: Ba # 1
-  coordinates: [  0.999999999999999,  0.999999999999999,  1.000000000000000 ]
+  coordinates: [  0.999999999999997,  0.000000000000000,  0.999999999999997 ]
   mass: 137.327000
 - symbol: Te # 2
-  coordinates: [  0.499999999999999,  0.499999999999999,  0.499999999999999 ]
+  coordinates: [  0.499999999999998,  0.500000000000000,  0.499999999999997 ]
   mass: 127.600000
 
 phonon:
@@ -29,11 +29,11 @@ phonon:
   distance:    0.0000000
   band:
   - # 1
-    frequency:   -0.0000571723
+    frequency:   -0.0000571725
   - # 2
-    frequency:   -0.0000571723
+    frequency:   -0.0000571725
   - # 3
-    frequency:   -0.0000571723
+    frequency:   -0.0000571725
   - # 4
     frequency:    2.5179670992
   - # 5
@@ -321,7 +321,7 @@ phonon:
   - # 2
     frequency:    0.3086641571
   - # 3
-    frequency:    0.9067091907
+    frequency:    0.9067091908
   - # 4
     frequency:    2.5235122178
   - # 5
@@ -353,7 +353,7 @@ phonon:
   - # 2
     frequency:    0.3414103304
   - # 3
-    frequency:    1.0031788024
+    frequency:    1.0031788025
   - # 4
     frequency:    2.5246421912
   - # 5
@@ -417,7 +417,7 @@ phonon:
   - # 2
     frequency:    0.4054369043
   - # 3
-    frequency:    1.1917894921
+    frequency:    1.1917894922
   - # 4
     frequency:    2.5270358642
   - # 5
@@ -593,7 +593,7 @@ phonon:
   - # 2
     frequency:    0.5692442875
   - # 3
-    frequency:    1.6714779146
+    frequency:    1.6714779147
   - # 4
     frequency:    2.5335894361
   - # 5
@@ -951,7 +951,7 @@ phonon:
   - # 5
     frequency:    2.5405065288
   - # 6
-    frequency:    2.6287383643
+    frequency:    2.6287383642
 
 - q-position: [    0.2900000,    0.0000000,    0.2900000 ]
   distance:    0.0825342
@@ -1015,7 +1015,7 @@ phonon:
   - # 5
     frequency:    2.5406543329
   - # 6
-    frequency:    2.5650486674
+    frequency:    2.5650486673
 
 - q-position: [    0.3100000,    0.0000000,    0.3100000 ]
   distance:    0.0882262
@@ -1031,7 +1031,7 @@ phonon:
   - # 5
     frequency:    2.5406495846
   - # 6
-    frequency:    2.5615564623
+    frequency:    2.5615564622
 
 - q-position: [    0.3150000,    0.0000000,    0.3150000 ]
   distance:    0.0896492
@@ -1047,7 +1047,7 @@ phonon:
   - # 5
     frequency:    2.5406300220
   - # 6
-    frequency:    2.5644480340
+    frequency:    2.5644480339
 
 - q-position: [    0.3200000,    0.0000000,    0.3200000 ]
   distance:    0.0910722
@@ -1095,7 +1095,7 @@ phonon:
   - # 5
     frequency:    2.5404923099
   - # 6
-    frequency:    2.5940246179
+    frequency:    2.5940246178
 
 - q-position: [    0.3350000,    0.0000000,    0.3350000 ]
   distance:    0.0953413
@@ -1143,7 +1143,7 @@ phonon:
   - # 5
     frequency:    2.5402572076
   - # 6
-    frequency:    2.6312849156
+    frequency:    2.6312849155
 
 - q-position: [    0.3500000,    0.0000000,    0.3500000 ]
   distance:    0.0996103
@@ -1159,7 +1159,7 @@ phonon:
   - # 5
     frequency:    2.5401619082
   - # 6
-    frequency:    2.6433709787
+    frequency:    2.6433709786
 
 - q-position: [    0.3550000,    0.0000000,    0.3550000 ]
   distance:    0.1010333
@@ -1267,9 +1267,9 @@ phonon:
   - # 3
     frequency:    2.0213770005
   - # 4
-    frequency:    2.5393570807
+    frequency:    2.5393570806
   - # 5
-    frequency:    2.5393570807
+    frequency:    2.5393570806
   - # 6
     frequency:    2.7145987674
 
@@ -1341,9 +1341,9 @@ phonon:
   distance:    0.1166863
   band:
   - # 1
-    frequency:    0.9925760424
+    frequency:    0.9925760423
   - # 2
-    frequency:    0.9925760424
+    frequency:    0.9925760423
   - # 3
     frequency:    1.8931782559
   - # 4
@@ -1427,9 +1427,9 @@ phonon:
   - # 3
     frequency:    1.7873687834
   - # 4
-    frequency:    2.5382109641
+    frequency:    2.5382109640
   - # 5
-    frequency:    2.5382109641
+    frequency:    2.5382109640
   - # 6
     frequency:    2.7741916724
 
@@ -1459,9 +1459,9 @@ phonon:
   - # 3
     frequency:    1.7529977230
   - # 4
-    frequency:    2.5380319492
+    frequency:    2.5380319491
   - # 5
-    frequency:    2.5380319492
+    frequency:    2.5380319491
   - # 6
     frequency:    2.7811489350
 
@@ -1565,9 +1565,9 @@ phonon:
   distance:    0.1366084
   band:
   - # 1
-    frequency:    1.0252308933
+    frequency:    1.0252308932
   - # 2
-    frequency:    1.0252308933
+    frequency:    1.0252308932
   - # 3
     frequency:    1.6750823049
   - # 4
@@ -1731,11 +1731,11 @@ phonon:
   - # 3
     frequency:    1.6624119982
   - # 4
-    frequency:    2.5373209756
+    frequency:    2.5373209755
   - # 5
     frequency:    2.5380904162
   - # 6
-    frequency:    2.7972435455
+    frequency:    2.7972435456
 
 - q-position: [    0.5075000,    0.0150000,    0.5075000 ]
   distance:    0.1453190
@@ -1845,7 +1845,7 @@ phonon:
   - # 4
     frequency:    2.5362046204
   - # 5
-    frequency:    2.5406227657
+    frequency:    2.5406227656
   - # 6
     frequency:    2.7960815036
 
@@ -1911,7 +1911,7 @@ phonon:
   - # 5
     frequency:    2.5429787138
   - # 6
-    frequency:    2.7949926907
+    frequency:    2.7949926908
 
 - q-position: [    0.5212500,    0.0425000,    0.5212500 ]
   distance:    0.1508532
@@ -1943,7 +1943,7 @@ phonon:
   - # 5
     frequency:    2.5443962064
   - # 6
-    frequency:    2.7943339232
+    frequency:    2.7943339233
 
 - q-position: [    0.5237500,    0.0475000,    0.5237500 ]
   distance:    0.1518594
@@ -2061,9 +2061,9 @@ phonon:
   distance:    0.1553812
   band:
   - # 1
-    frequency:    1.0561978480
+    frequency:    1.0561978479
   - # 2
-    frequency:    1.0894991791
+    frequency:    1.0894991790
   - # 3
     frequency:    1.6504411869
   - # 4
@@ -2135,7 +2135,7 @@ phonon:
   - # 5
     frequency:    2.5560179358
   - # 6
-    frequency:    2.7888227677
+    frequency:    2.7888227678
 
 - q-position: [    0.5387500,    0.0775000,    0.5387500 ]
   distance:    0.1578967
@@ -2163,11 +2163,11 @@ phonon:
   - # 3
     frequency:    1.6440963300
   - # 4
-    frequency:    2.5277269676
+    frequency:    2.5277269675
   - # 5
     frequency:    2.5584310446
   - # 6
-    frequency:    2.7876523330
+    frequency:    2.7876523331
 
 - q-position: [    0.5412500,    0.0825000,    0.5412500 ]
   distance:    0.1589029
@@ -2179,7 +2179,7 @@ phonon:
   - # 3
     frequency:    1.6429153758
   - # 4
-    frequency:    2.5270856230
+    frequency:    2.5270856229
   - # 5
     frequency:    2.5596836027
   - # 6
@@ -2215,7 +2215,7 @@ phonon:
   - # 5
     frequency:    2.5622769722
   - # 6
-    frequency:    2.7857670024
+    frequency:    2.7857670025
 
 - q-position: [    0.5450000,    0.0900000,    0.5450000 ]
   distance:    0.1604123
@@ -2243,7 +2243,7 @@ phonon:
   - # 3
     frequency:    1.6378430150
   - # 4
-    frequency:    2.5242997400
+    frequency:    2.5242997399
   - # 5
     frequency:    2.5649827991
   - # 6
@@ -2279,7 +2279,7 @@ phonon:
   - # 5
     frequency:    2.5677945874
   - # 6
-    frequency:    2.7830172064
+    frequency:    2.7830172065
 
 - q-position: [    0.5500000,    0.1000000,    0.5500000 ]
   distance:    0.1624247
@@ -2387,7 +2387,7 @@ phonon:
   - # 3
     frequency:    1.6244271684
   - # 4
-    frequency:    2.5166879772
+    frequency:    2.5166879771
   - # 5
     frequency:    2.5783705583
   - # 6
@@ -2447,7 +2447,7 @@ phonon:
   - # 1
     frequency:    1.1303470943
   - # 2
-    frequency:    1.2442111500
+    frequency:    1.2442111499
   - # 3
     frequency:    1.6175956985
   - # 4
@@ -2493,7 +2493,7 @@ phonon:
   distance:    0.1689651
   band:
   - # 1
-    frequency:    1.1422757108
+    frequency:    1.1422757107
   - # 2
     frequency:    1.2687358443
   - # 3
@@ -2501,7 +2501,7 @@ phonon:
   - # 4
     frequency:    2.5094021832
   - # 5
-    frequency:    2.5898472983
+    frequency:    2.5898472982
   - # 6
     frequency:    2.7714129977
 
@@ -2645,7 +2645,7 @@ phonon:
   - # 4
     frequency:    2.4981414354
   - # 5
-    frequency:    2.6053759574
+    frequency:    2.6053759573
   - # 6
     frequency:    2.7625003171
 
@@ -2957,7 +2957,7 @@ phonon:
   distance:    0.1835552
   band:
   - # 1
-    frequency:    1.2802974672
+    frequency:    1.2802974671
   - # 2
     frequency:    1.5452123880
   - # 3
@@ -3223,7 +3223,7 @@ phonon:
   - # 5
     frequency:    2.6610251062
   - # 6
-    frequency:    2.7189732450
+    frequency:    2.7189732451
 
 - q-position: [    0.6237500,    0.2475000,    0.6237500 ]
   distance:    0.1921080
@@ -3379,7 +3379,7 @@ phonon:
   - # 3
     frequency:    1.9981330086
   - # 4
-    frequency:    2.3605501212
+    frequency:    2.3605501211
   - # 5
     frequency:    2.6749535013
   - # 6
@@ -4077,7 +4077,7 @@ phonon:
   distance:    0.2695866
   band:
   - # 1
-    frequency:    0.8434309276
+    frequency:    0.8434309275
   - # 2
     frequency:    1.4835755457
   - # 3
@@ -4305,7 +4305,7 @@ phonon:
   - # 2
     frequency:    1.0990579354
   - # 3
-    frequency:    1.5490457890
+    frequency:    1.5490457891
   - # 4
     frequency:    2.4331250032
   - # 5
@@ -4401,7 +4401,7 @@ phonon:
   - # 2
     frequency:    0.9208020273
   - # 3
-    frequency:    1.3111763604
+    frequency:    1.3111763605
   - # 4
     frequency:    2.4696368195
   - # 5
@@ -4415,7 +4415,7 @@ phonon:
   - # 1
     frequency:    0.5050469028
   - # 2
-    frequency:    0.8904937894
+    frequency:    0.8904937895
   - # 3
     frequency:    1.2699690278
   - # 4
@@ -4495,7 +4495,7 @@ phonon:
   - # 1
     frequency:    0.4184513998
   - # 2
-    frequency:    0.7367599733
+    frequency:    0.7367599734
   - # 3
     frequency:    1.0580173251
   - # 4
@@ -4559,7 +4559,7 @@ phonon:
   - # 1
     frequency:    0.3477200988
   - # 2
-    frequency:    0.6114915611
+    frequency:    0.6114915612
   - # 3
     frequency:    0.8821713399
   - # 4
@@ -4861,11 +4861,11 @@ phonon:
   distance:    0.3435435
   band:
   - # 1
-    frequency:   -0.0000571723
+    frequency:   -0.0000571725
   - # 2
-    frequency:   -0.0000571723
+    frequency:   -0.0000571725
   - # 3
-    frequency:   -0.0000571723
+    frequency:   -0.0000571725
   - # 4
     frequency:    2.5179670992
   - # 5
@@ -4877,11 +4877,11 @@ phonon:
   distance:    0.3435435
   band:
   - # 1
-    frequency:   -0.0000571723
+    frequency:   -0.0000571725
   - # 2
-    frequency:   -0.0000571723
+    frequency:   -0.0000571725
   - # 3
-    frequency:   -0.0000571723
+    frequency:   -0.0000571725
   - # 4
     frequency:    2.5179670992
   - # 5
@@ -5377,7 +5377,7 @@ phonon:
   - # 2
     frequency:    0.7133569127
   - # 3
-    frequency:    1.0977280883
+    frequency:    1.0977280884
   - # 4
     frequency:    2.5035000262
   - # 5
@@ -5389,9 +5389,9 @@ phonon:
   distance:    0.3829789
   band:
   - # 1
-    frequency:    0.7356274595
+    frequency:    0.7356274596
   - # 2
-    frequency:    0.7356274595
+    frequency:    0.7356274596
   - # 3
     frequency:    1.1309195755
   - # 4
@@ -7389,7 +7389,7 @@ phonon:
   distance:    0.5231273
   band:
   - # 1
-    frequency:    1.5332663283
+    frequency:    1.5332663284
   - # 2
     frequency:    1.5628878439
   - # 3
@@ -7587,7 +7587,7 @@ phonon:
   - # 3
     frequency:    2.1689453382
   - # 4
-    frequency:    2.2759074744
+    frequency:    2.2759074743
   - # 5
     frequency:    2.6736653473
   - # 6
@@ -8021,7 +8021,7 @@ phonon:
   - # 4
     frequency:    2.2764152507
   - # 5
-    frequency:    2.6550686194
+    frequency:    2.6550686193
   - # 6
     frequency:    2.6553176053
 
@@ -8461,7 +8461,7 @@ phonon:
   distance:    0.5830538
   band:
   - # 1
-    frequency:    1.2506778217
+    frequency:    1.2506778218
   - # 2
     frequency:    1.4627917219
   - # 3
@@ -8595,7 +8595,7 @@ phonon:
   - # 3
     frequency:    1.7848088632
   - # 4
-    frequency:    2.4562736774
+    frequency:    2.4562736773
   - # 5
     frequency:    2.5990500849
   - # 6
@@ -8675,7 +8675,7 @@ phonon:
   - # 3
     frequency:    1.7105687627
   - # 4
-    frequency:    2.4793978708
+    frequency:    2.4793978707
   - # 5
     frequency:    2.5910251790
   - # 6
@@ -8739,7 +8739,7 @@ phonon:
   - # 3
     frequency:    1.6504654871
   - # 4
-    frequency:    2.4948356040
+    frequency:    2.4948356039
   - # 5
     frequency:    2.5849387042
   - # 6
@@ -8947,7 +8947,7 @@ phonon:
   - # 3
     frequency:    1.5813511819
   - # 4
-    frequency:    2.5279123452
+    frequency:    2.5279123451
   - # 5
     frequency:    2.5673987141
   - # 6
@@ -8967,7 +8967,7 @@ phonon:
   - # 5
     frequency:    2.5662004034
   - # 6
-    frequency:    2.7573231472
+    frequency:    2.7573231473
 
 - q-position: [    0.5000000,    0.1150000,    0.6150000 ]
   distance:    0.6058219
@@ -9491,11 +9491,11 @@ phonon:
   - # 3
     frequency:    1.6556502719
   - # 4
-    frequency:    2.5394107027
+    frequency:    2.5394107026
   - # 5
     frequency:    2.5401564831
   - # 6
-    frequency:    2.7936737898
+    frequency:    2.7936737899
 
 - q-position: [    0.5000000,    0.0325000,    0.5325000 ]
   distance:    0.6293015
@@ -9505,11 +9505,11 @@ phonon:
   - # 2
     frequency:    1.0656554156
   - # 3
-    frequency:    1.6566421700
+    frequency:    1.6566421699
   - # 4
     frequency:    2.5391888823
   - # 5
-    frequency:    2.5397987494
+    frequency:    2.5397987493
   - # 6
     frequency:    2.7941962072
 
@@ -9523,7 +9523,7 @@ phonon:
   - # 3
     frequency:    1.6575615211
   - # 4
-    frequency:    2.5389739355
+    frequency:    2.5389739354
   - # 5
     frequency:    2.5394673170
   - # 6
@@ -9651,7 +9651,7 @@ phonon:
   - # 3
     frequency:    1.6622825899
   - # 4
-    frequency:    2.5377276900
+    frequency:    2.5377276899
   - # 5
     frequency:    2.5377674103
   - # 6
@@ -9671,7 +9671,7 @@ phonon:
   - # 5
     frequency:    2.5376743032
   - # 6
-    frequency:    2.7973120610
+    frequency:    2.7973120611
 
 - q-position: [    0.5000000,    0.0050000,    0.5050000 ]
   distance:    0.6371280

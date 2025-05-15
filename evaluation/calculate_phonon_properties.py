@@ -76,6 +76,14 @@ for mp_id in os.listdir("./dft_pbe_phonons"):
     volume = phonon_prop.get_volume()
     rmsd, maxd = phonon_prop.get_displacements(other=phonon_prop_dft)
     spacegroup = phonon_prop.get_space_group()
+    heat_capacity, entropy, free_energy = phonon_prop.get_thermal_properties(
+        temperature=300
+    )
+    k_diff_high_temp_limit = phonon_prop.get_agne_high_temperature_limit()
+
+    benchmark_heat_capacity, benchmark_entropy, benchmark_free_energy = (
+        phonon_prop_dft.get_thermal_properties(temperature=300)
+    )
 
     data = {
         "material": mp_id,
@@ -89,15 +97,23 @@ for mp_id in os.listdir("./dft_pbe_phonons"):
         "rmsd": rmsd,
         "maxd": maxd,
         "spacegroup": spacegroup,
-        "min_frequency": min_f,
-        "max_frequency": max_f,
-        "mean_frequency": mean_f,
-        "volume": volume,
         "benchmark_spacegroup": phonon_prop_dft.get_space_group(),
+        "min_frequency": min_f,
         "benchmark_min_frequency": phonon_prop_dft.get_min_frequency(),
+        "max_frequency": max_f,
         "benchmark_max_frequency": phonon_prop_dft.get_max_frequency(),
+        "mean_frequency": mean_f,
         "benchmark_mean_frequency": phonon_prop_dft.get_mean_frequency(),
+        "volume": volume,
         "benchmark_volume": phonon_prop_dft.get_volume(),
+        "heat_capacity": heat_capacity,
+        "benchmark_heat_capacity": benchmark_heat_capacity,
+        "entropy": entropy,
+        "benchmark_entropy": benchmark_entropy,
+        "free_energy": free_energy,
+        "benchmark_free_energy": benchmark_free_energy,
+        "k_diff_high_temp_limit": k_diff_high_temp_limit,
+        "benchmark_k_diff_high_temp_limit": phonon_prop_dft.get_agne_high_temperature_limit(),
     }
 
     if os.path.exists("./phonon_properties.csv"):
