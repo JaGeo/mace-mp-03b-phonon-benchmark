@@ -7,6 +7,7 @@ This repository contains phonon calculations and evaluations for the MACE MP-0b3
 The phonon calculations for the benchmark set were performed using density functional theory (DFT) with the PBE functional. These calculations serve as reference data for evaluating the performance of the MACE model.  
 The calculations were carried out using the finite-displacement method with `Phonopy` ([link](https://phonopy.github.io/phonopy/)) and the Atomate2 `PhononMaker` ([link](https://github.com/materialsproject/atomate2)).  
 For the benchmark set, mainly chalcogenide-based and thermoelectric materials were selected. In the directory `dft_pbe_phonons/{mp_id}`, you can find the `phonopy.yaml` files for the different materials, with the `mp-id` as used in the Materials Project ([link](https://next-gen.materialsproject.org)).
+The software versions used can be found in the `requirements.txt` file.
 
 #### DFT Settings:
 The DFT calculations were performed with VASP.    
@@ -56,25 +57,33 @@ DFT phonon band structures (black) and MACE-MP-0b3 phonon band structures (red) 
 
 The columns in the `phonon_properties.csv` file have the following meanings:
 
-- `rmse`: Root Mean Square Error between DFT and MACE phonons along the selected k-path.
-- `mae`: Mean Absolute Error between DFT and MACE phonons along the selected k-path.
+- `rmse`: Root Mean Square Error between DFT and MACE phonons along the selected k-path. [THz]
+- `mae`: Mean Absolute Error between DFT and MACE phonons along the selected k-path. [THz]
 - `r2`: R² score between DFT and MACE phonons along the selected k-path.
-- `phonon_rmse`: Root Mean Square Error between DFT and MACE phonons evaluated over the entire Brillouin zone.
-- `phonon_mae`: Mean Absolute Error between DFT and MACE phonons over the entire Brillouin zone.
-- `phonon_scaled_rmse`: DFT and MACE phonons are scaled to the same maximum frequency, then RMSE is computed over the Brillouin zone. This metric compares the shape of the phonon bands.
+- `phonon_rmse`: Root Mean Square Error between DFT and MACE phonons evaluated over the entire Brillouin zone. [THz]
+- `phonon_mae`: Mean Absolute Error between DFT and MACE phonons over the entire Brillouin zone. [THz]
+- `phonon_scaled_rmse`: DFT and MACE phonons are scaled to the same maximum frequency, then RMSE is computed over the Brillouin zone. This metric compares the shape of the phonon bands. [THz]
 - `phonon_rrmse`: Relative RMSE, i.e., the RMSE between DFT and MACE phonons over the Brillouin zone normalized by the RMS of the DFT phonons.
 - `rmsd`: Root Mean Square Distance between the DFT-relaxed primitive cell and the MACE-MP-0b3 relaxed primitive cell, as defined in `pymatgen.analysis.structure_matcher.StructureMatcher`.
-- `maxd`: Maximum displacement between the DFT and MACE-MP-0b3 relaxed primitive cells, also from `StructureMatcher`.
+- `maxd`: Maximum displacement between the DFT and MACE-MP-0b3 relaxed primitive cells, also from `StructureMatcher`. [Å]
 - `spacegroup`: Space group of the MACE-MP-0b3 relaxed primitive cell.
-- `min_frequency`: Minimum frequency of the MACE-MP-0b3 phonons.
-- `max_frequency`: Maximum frequency of the MACE-MP-0b3 phonons.
-- `mean_frequency`: Mean frequency of the MACE-MP-0b3 phonons.
-- `volume`: Volume of the MACE-MP-0b3 relaxed primitive cell.
 - `benchmark_spacegroup`: Space group of the DFT-PBE relaxed primitive cell.
-- `benchmark_min_frequency`: Minimum frequency of the DFT-PBE phonons.
-- `benchmark_max_frequency`: Maximum frequency of the DFT-PBE phonons.
-- `benchmark_mean_frequency`: Mean frequency of the DFT-PBE phonons.
-- `benchmark_volume`: Volume of the DFT-PBE relaxed primitive cell.
+- `min_frequency`: Minimum frequency of the MACE-MP-0b3 phonons. [THz]
+- `benchmark_min_frequency`: Minimum frequency of the DFT-PBE phonons. [THz]
+- `max_frequency`: Maximum frequency of the MACE-MP-0b3 phonons. [THz]
+- `benchmark_max_frequency`: Maximum frequency of the DFT-PBE phonons. [THz]
+- `mean_frequency`: Mean frequency of the MACE-MP-0b3 phonons. [THz]
+- `benchmark_mean_frequency`: Mean frequency of the DFT-PBE phonons.[THz]
+- `volume`: Volume of the MACE-MP-0b3 relaxed primitive cell. [Å^3]
+- `benchmark_volume`: Volume of the DFT-PBE relaxed primitive cell. [Å^3]
+- `heat_capacity`: Heat capacity at const. volume of the MACE-MP-0b3 phonons with phonopy at 300K. [J/Kmol]
+- `benchmark_heat_capacity`: Heat capacity at const. volume of the DFT PBE phonons with phonopy at 300K. [J/Kmol]
+- `entropy`: Entropy of the MACE-MP-0b3 phonons with phonopy at 300K. [J/Kmol]
+- `benchmark_entropy`: Entropy of the MACE-MP-0b3 phonons with phonopy at 300K. [J/Kmol]
+- `free_energy`: Free energy of the MACE-MP-0b3 phonons with phonopy at 300K. [kJ/mol]
+- `benchmark_free_energy`:  Free energy of the MACE-MP-0b3 phonons with phonopy at 300K. [J/Kmol]
+- `k_diff_high_temp_limit`: High temperature limit (300K) of the diffusive minimum thermal conducitvity model proposed by [Agne et al.](https://pubs.rsc.org/en/content/articlehtml/2018/ee/c7ee03256k) for MACE-MP-0b3 phonons. [W/Km]
+- `benchmark_k_diff_high_temp_limit`: High temperature limit (300K) of the diffusive minimum thermal conducitvity model proposed by [Agne et al.](https://pubs.rsc.org/en/content/articlehtml/2018/ee/c7ee03256k) for DFT PBE phonons. [W/Km]
 
 ---
 
