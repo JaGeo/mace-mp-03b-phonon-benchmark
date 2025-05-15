@@ -79,9 +79,9 @@ The columns in the `phonon_properties.csv` file have the following meanings:
 - `heat_capacity`: Heat capacity at const. volume of the MACE-MP-0b3 phonons with phonopy at 300K. [J/Kmol]
 - `benchmark_heat_capacity`: Heat capacity at const. volume of the DFT PBE phonons with phonopy at 300K. [J/Kmol]
 - `entropy`: Entropy of the MACE-MP-0b3 phonons with phonopy at 300K. [J/Kmol]
-- `benchmark_entropy`: Entropy of the MACE-MP-0b3 phonons with phonopy at 300K. [J/Kmol]
+- `benchmark_entropy`: Entropy of the DFT PBE phonons with phonopy at 300K. [J/Kmol]
 - `free_energy`: Free energy of the MACE-MP-0b3 phonons with phonopy at 300K. [kJ/mol]
-- `benchmark_free_energy`:  Free energy of the MACE-MP-0b3 phonons with phonopy at 300K. [J/Kmol]
+- `benchmark_free_energy`:  Free energy of the DFT PBE phonons with phonopy at 300K. [J/Kmol]
 - `k_diff_high_temp_limit`: High temperature limit (300K) of the diffusive minimum thermal conducitvity model proposed by [Agne et al.](https://pubs.rsc.org/en/content/articlehtml/2018/ee/c7ee03256k) for MACE-MP-0b3 phonons. [W/Km]
 - `benchmark_k_diff_high_temp_limit`: High temperature limit (300K) of the diffusive minimum thermal conducitvity model proposed by [Agne et al.](https://pubs.rsc.org/en/content/articlehtml/2018/ee/c7ee03256k) for DFT PBE phonons. [W/Km]
 
