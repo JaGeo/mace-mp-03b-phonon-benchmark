@@ -1,3 +1,4 @@
+[![DOI](https://zenodo.org/badge/985247104.svg)](https://doi.org/10.5281/zenodo.15462975)
 # mace_phonons
 
 This repository contains phonon calculations and evaluations for the MACE MP-0b3 model.
